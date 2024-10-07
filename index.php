@@ -13,12 +13,22 @@
 </head>
 
 <body>
-
     <main>
         <div class="container mt-4">
             <div class="row">
                 <div class="col-12">
                     <h1 class="fw-bolder text-center">php-strong-password-generator</h1>
+                </div>
+                <div class="col-12">
+                    <form action="snack5.php" method="GET" class="col-12 row">
+                        <div class="col-4 mb-3">
+                            <label for="user-password">Type the length of the password:</label>
+                            <input type="text" name="user-password" id="user-password" placeholder="...">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-sm btn-primary">Send</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
