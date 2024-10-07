@@ -1,23 +1,12 @@
 <?php
+require __DIR__ . '/functions/functions.php';
+
 // collected data from from
 $user_password = $_GET['user-password'];
 
-function getRandomPassword($value)
-{
-    $random_password = '';
-    $characters_list = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-:.;,@#*+?=%$£!';
-
-    for ($i = 0; $i < $value; $i++) {
-        $random_index = rand(0, strlen($characters_list) - 1);
-        $random_password .= $characters_list[$random_index];
-    };
-
-    return  $random_password;
-};
-
 // validation of $user_password
 if (isset($user_password) && !empty($user_password) && is_numeric($user_password) && $user_password > 0) {
-    $new_password = 'This is your new password:' . ' mb-3 ' . getRandomPassword($user_password);
+    $new_password = 'This is your new password:' . ' ' . getRandomPassword($user_password);
 } else {
     $new_password = 'type a correct value!';
 }
