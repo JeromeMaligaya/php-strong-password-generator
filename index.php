@@ -1,15 +1,24 @@
 <?php
 require __DIR__ . '/functions/functions.php';
 
+// session
+session_start();
+
 // collected data from from
 $user_password = $_GET['user-password'];
 
 // validation of $user_password
 if (isset($user_password) && !empty($user_password) && is_numeric($user_password) && $user_password > 0) {
-    $new_password = 'This is your new password:' . ' ' . getRandomPassword($user_password);
+    $user_password =  getRandomPassword($user_password);
+    $message = 'This is your new password:' . ' ' . $user_password;
+    $_SESSION['user_random_password'] = $user_password;
 } else {
-    $new_password = 'type a correct value!';
+    $message = 'type a correct value!';
 }
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +44,7 @@ if (isset($user_password) && !empty($user_password) && is_numeric($user_password
                     <h3 class="fw-bolder text-center text-white">Genera una password sicura</h3>
                 </div>
                 <div class="col-12 mb-2 py-3 rounded bg-info">
-                    <p class="text-info-emphasis m-0"><?php echo $new_password ?></p>
+                    <p class="text-info-emphasis m-0"><?php echo $message ?></p>
                 </div>
                 <div class="col-12 bg-white py-4 rounded">
                     <form action="index.php" method="GET" class="col-12 row">
