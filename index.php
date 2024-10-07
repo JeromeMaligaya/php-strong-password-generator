@@ -9,16 +9,12 @@ $user_password = $_GET['user-password'];
 
 // validation of $user_password
 if (isset($user_password) && !empty($user_password) && is_numeric($user_password) && $user_password > 0) {
-    $user_password =  getRandomPassword($user_password);
-    $message = 'This is your new password:' . ' ' . $user_password;
-    $_SESSION['user_random_password'] = $user_password;
+    $new_password =  getRandomPassword($user_password);
+    $message = 'This is your new password:' . ' ' . $new_password;
+    $_SESSION['user_random_password'] = $new_password;
 } else {
     $message = 'type a correct value!';
 }
-
-
-
-
 ?>
 
 <!DOCTYPE html>
