@@ -6,10 +6,11 @@ session_start();
 
 // collected data from from
 $user_password = $_GET['user-password'];
+$user_type = $_GET['user-type'];
 
 // validation of $user_password
 if (isset($user_password) && !empty($user_password) && is_numeric($user_password) && $user_password > 0) {
-    $new_password =  getRandomPassword($user_password);
+    $new_password =  getRandomPassword($user_password, 'all');
     $message = 'This is your new password:' . ' ' . $new_password;
     $_SESSION['user_random_password'] = $new_password;
 } else {
@@ -44,9 +45,24 @@ if (isset($user_password) && !empty($user_password) && is_numeric($user_password
                 </div>
                 <div class="col-12 bg-white py-4 rounded">
                     <form action="index.php" method="GET" class="col-12 row">
-                        <div class="col-12 row mb-5">
+                        <div class="col-12 row mb-2">
                             <label class="col-7" for="user-password">Lunghezza password:</label>
                             <input class="col-5" type="text" name="user-password" id="user-password" placeholder="...">
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="mb-2">
+                                <input value="all" type="checkbox" name="user-type" id="all"><span class="ms-2">Lettere
+                                    e
+                                    numeri</span>
+                            </div>
+                            <div class="mb-2">
+                                <input value="numbers" type="checkbox" name="user-type" id="numbers"><span
+                                    class="ms-2">Numeri</span>
+                            </div>
+                            <div class="mb-2">
+                                <input value="letters" type="checkbox" name="user-type" id="letters"><span
+                                    class="ms-2">Lettere</span>
+                            </div>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-sm btn-primary">Invia</button>
