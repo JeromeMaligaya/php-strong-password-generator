@@ -1,3 +1,28 @@
+<?php
+// collected data from from
+$user_password = $_GET['user-password'];
+
+function getRandomPassword($value)
+{
+    $random_password = '';
+    $characters_list = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-:.;,@#*+?=%$£!';
+
+    for ($i = 0; $i < $value; $i++) {
+        $random_index = rand(0, strlen($characters_list) - 1);
+        $random_password .= $characters_list[$random_index];
+    };
+
+    return  $random_password;
+};
+
+// validation of $user_password
+if (isset($user_password) && !empty($user_password) && is_numeric($user_password) && $user_password > 0) {
+    $new_password = getRandomPassword($user_password);
+} else {
+    $new_password = 'type a correct value!';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -20,7 +45,7 @@
                     <h1 class="fw-bolder text-center">php-strong-password-generator</h1>
                 </div>
                 <div class="col-12">
-                    <form action="snack5.php" method="GET" class="col-12 row">
+                    <form action="index.php" method="GET" class="col-12 row">
                         <div class="col-4 mb-3">
                             <label for="user-password">Type the length of the password:</label>
                             <input type="text" name="user-password" id="user-password" placeholder="...">
@@ -29,6 +54,9 @@
                             <button type="submit" class="btn btn-sm btn-primary">Send</button>
                         </div>
                     </form>
+                </div>
+                <div class="col-12">
+                    <?php echo $new_password ?>
                 </div>
             </div>
         </div>
