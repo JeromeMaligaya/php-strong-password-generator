@@ -17,7 +17,7 @@ function getRandomPassword($value)
 
 // validation of $user_password
 if (isset($user_password) && !empty($user_password) && is_numeric($user_password) && $user_password > 0) {
-    $new_password = getRandomPassword($user_password);
+    $new_password = 'This is your new password:' . ' mb-3 ' . getRandomPassword($user_password);
 } else {
     $new_password = 'type a correct value!';
 }
@@ -41,10 +41,10 @@ if (isset($user_password) && !empty($user_password) && is_numeric($user_password
     <main>
         <div class="container mt-4">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 mb-3">
                     <h1 class="fw-bolder text-center">php-strong-password-generator</h1>
                 </div>
-                <div class="col-12">
+                <div class="col-12 mb-5">
                     <form action="index.php" method="GET" class="col-12 row">
                         <div class="col-4 mb-3">
                             <label for="user-password">Type the length of the password:</label>
@@ -55,8 +55,8 @@ if (isset($user_password) && !empty($user_password) && is_numeric($user_password
                         </div>
                     </form>
                 </div>
-                <div class="col-12">
-                    <?php echo $new_password ?>
+                <div class="col-12 mb-4">
+                    <h4><?php echo $new_password ?></h4>
                 </div>
             </div>
         </div>
