@@ -20,32 +20,34 @@ if (isset($user_password) && !empty($user_password) && is_numeric($user_password
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Melvin Jerome Luna Maligaya">
     <title>php-strong-password-generator</title>
+
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
 </head>
 
 <body>
-    <main>
+    <main class="bg-primary-subtle py-5">
         <div class="container mt-4">
             <div class="row">
-                <div class="col-12 mb-3">
-                    <h1 class="fw-bolder text-center">php-strong-password-generator</h1>
+                <div class="col-12 mb-1">
+                    <h1 class="fw-bolder text-center text-secondary">Strong Password Generator</h1>
+                    <h3 class="fw-bolder text-center text-white">Genera una password sicura</h3>
                 </div>
-                <div class="col-12 mb-5">
+                <div class="col-12 mb-2 py-3 rounded bg-info">
+                    <p class="text-info-emphasis m-0"><?php echo $new_password ?></p>
+                </div>
+                <div class="col-12 bg-white py-4 rounded">
                     <form action="index.php" method="GET" class="col-12 row">
-                        <div class="col-4 mb-3">
-                            <label for="user-password">Type the length of the password:</label>
-                            <input type="text" name="user-password" id="user-password" placeholder="...">
+                        <div class="col-12 row mb-5">
+                            <label class="col-7" for="user-password">Lunghezza password:</label>
+                            <input class="col-5" type="text" name="user-password" id="user-password" placeholder="...">
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-sm btn-primary">Send</button>
+                            <button type="submit" class="btn btn-sm btn-primary">Invia</button>
+                            <button type="reset" class="btn btn-sm btn-secondary">Annulla</button>
                         </div>
                     </form>
-                </div>
-                <div class="col-12 mb-4">
-                    <h4><?php echo $new_password ?></h4>
                 </div>
             </div>
         </div>
